@@ -117,13 +117,13 @@ export default function RootLayout({
             url: "https://sitenerve.online",
             logo: "https://sitenerve.online/logo.jpeg",
             sameAs: [
-              "https://www.instagram.com/qalamweb.studio",
-              "https://www.linkedin.com/company/qalam-web-studio/",
-              "https://wa.me/918141875116",
+              "https://www.instagram.com/sitenerve.online/",
+              "https://www.linkedin.com/in/site-nerve-656145421",
+              "https://wa.me/919104980549",
             ],
             contactPoint: {
               "@type": "ContactPoint",
-              telephone: "+91-81418-75116",
+              telephone: "+91-91049-80549",
               contactType: "customer support",
               areaServed: "IN",
               availableLanguage: ["en", "hi"],

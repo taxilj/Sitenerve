@@ -21,9 +21,9 @@ const headingLines: HeadingLine[] = [
 ];
 
 const socialLinks = [
-    { icon: FaInstagram, url: "https://www.instagram.com/qalamwebstudio?igsh=cXRvazZzajd6ZGJv&utm_source=qr", color: "text-pink-600" },
-    { icon: FaLinkedinIn, url: "https://www.linkedin.com/company/qalam-web-studio/", color: "text-blue-700" },
-    { icon: FaWhatsapp, url: "https://wa.me/918141875116", color: "text-green-500" },
+    { icon: FaInstagram, url: "https://www.instagram.com/sitenerve.online/", color: "text-pink-600" },
+    { icon: FaLinkedinIn, url: "https://www.linkedin.com/in/site-nerve-656145421", color: "text-blue-700" },
+    { icon: FaWhatsapp, url: "https://wa.me/919104980549", color: "text-green-500" },
 ];
 
 let heroAnimationPlayed = false;

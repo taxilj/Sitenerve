@@ -12,7 +12,7 @@ import { ChevronDown, ChevronRight, Check } from "lucide-react";
 const contactChannels = [
   {
     label: "Phone / WhatsApp",
-    value: "+91 8141875116",
+    value: "+91 9104980549",
     helper: "Call us 10 AM – 8 PM IST for new engagements.",
   },
   {
