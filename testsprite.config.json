@@ -1,0 +1,35 @@
+{
+  "project": {
+    "name": "emtrix",
+    "type": "nextjs",
+    "framework": "react",
+    "description": "IT Services & Digital Solutions website built with Next.js, featuring modern UI components, animations, and responsive design."
+  },
+  "testing": {
+    "framework": "nextjs",
+    "target": "http://localhost:3000",
+    "include": [
+      "src/**/*.tsx",
+      "src/**/*.ts",
+      "src/**/*.jsx",
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "node_modules/**",
+      ".next/**",
+      "dist/**"
+    ]
+  },
+  "features": [
+    "navbar navigation",
+    "hero section with animations",
+    "marquee component",
+    "about section",
+    "showcase section",
+    "our work section",
+    "client reviews",
+    "model pricing",
+    "connect section",
+    "footer"
+  ]
+}

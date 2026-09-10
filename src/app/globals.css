@@ -1,0 +1,109 @@
+@import "locomotive-scroll/dist/locomotive-scroll.css";
+@import "tailwindcss";
+
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.card {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); /* shadow-lg */
+    border-radius: 0.5rem; /* rounded-lg */
+    background-color: transparent; /* bg-white */
+    padding: 2rem; /* p-8 */
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+    color: #333; /* text-gray-700 */
+    text-decoration: none;
+    overflow: auto;
+    max-width: 800px;
+    max-height: 600px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+html,body{
+    margin: 0;
+    padding: 0;
+
+    background-color: #f1f1f1;
+    scroll-behavior: smooth;
+}
+@font-face {
+    font-family: 'Neue';
+    src: url('/font/NeueMontreal-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-Neue {
+    font-family: 'Neue', sans-serif;
+}
+
+@font-face {
+    font-family: 'FoundersGrotesk';
+    src: url('/font/FoundersGrotesk-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+.font-FoundersGrotesk {
+    font-family: 'FoundersGrotesk', sans-serif;
+
+}
+
+@font-face {
+    font-family: 'icon';
+    src: url('/font/icomoon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-icon {
+    font-family: 'icon', sans-serif;
+}
+
+.marquee-track {
+    animation: marquee-scroll 18s linear infinite;
+}
+
+@keyframes marquee-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+button.group {
+    position: relative;
+}
+
+button.group::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease;
+    z-index: 0;
+}
+
+button.group:hover::before {
+    transform: scaleX(1);
+}
+
+button.group span {
+    position: relative;
+    z-index: 1;
+}
+
+
