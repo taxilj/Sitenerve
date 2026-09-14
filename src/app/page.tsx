@@ -12,6 +12,7 @@ import { Connect } from '@/page/Connect';
 import { Footer } from '@/page/Footer';
 import LocomotiveScroll from 'locomotive-scroll';
 import { ActiveProjects } from '@/components/ActiveProjects';
+import { CompletedProjects } from '@/components/CompletedProjects';
 
 export default function Home() {
     // Memoized event handler to prevent unnecessary re-renders
@@ -59,6 +60,7 @@ export default function Home() {
             </div>
             <Ourwork />
             <ActiveProjects />
+            <CompletedProjects />
             <Clientsreviews />
             <Modelprice />
             <Connect />

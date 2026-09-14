@@ -9,6 +9,7 @@ import { Ourwork } from "@/page/Ourwork";
 import { Connect } from "@/page/Connect";
 import { Footer } from "@/page/Footer";
 import { ActiveProjects } from "@/components/ActiveProjects";
+import { CompletedProjects } from "@/components/CompletedProjects";
 
 export default function WorkPage() {
   const scrollContainerRef = useRef<HTMLElement | null>(null);
@@ -36,6 +37,7 @@ export default function WorkPage() {
       </section>
 
       <ActiveProjects />
+      <CompletedProjects />
       <Showcase />
       <Ourwork />
       <Connect />
