@@ -15,24 +15,6 @@ const testimonials = [
     EmailID: "contact@redskysecurity.com",
   },
   {
-    text: "The team delivered a beautiful and functional website. Extra line: Clean code and great design.",
-    initials: "RS",
-    name: "Rahul Singh",
-    EmailID: "rahul.singh@email.com",
-  },
-  {
-    text: "Great communication and attention to detail. Extra line: Always kept me updated on progress.",
-    initials: "SP",
-    name: "Sneha Patel",
-    EmailID: "sneha.patel@email.com",
-  },
-  {
-    text: "I am very happy with the final result. Thank you! Extra line: The project was completed before deadline.",
-    initials: "VJ",
-    name: "Vikram Joshi",
-    EmailID: "vikram.joshi@email.com",
-  },
-  {
     text: "Outstanding work quality and professional service. SiteNerve delivered exactly what we needed for our business. Highly recommended!",
     initials: "AP",
     name: "Aashish Pande",
@@ -130,9 +112,13 @@ const ClientsReviews = ({
 };
 
 export const Clientsreviews = () => {
-  const firstColumn = useMemo(() => testimonials.slice(0, 3), []);
-  const secondColumn = useMemo(() => testimonials.slice(3, 6), []);
-  const thirdColumn = useMemo(() => testimonials.slice(6, 9), []);
+  const columnSize = useMemo(() => Math.ceil(testimonials.length / 3), []);
+  const firstColumn = useMemo(() => testimonials.slice(0, columnSize), [columnSize]);
+  const secondColumn = useMemo(
+    () => testimonials.slice(columnSize, columnSize * 2),
+    [columnSize]
+  );
+  const thirdColumn = useMemo(() => testimonials.slice(columnSize * 2), [columnSize]);
 
   return (
     <section className="w-full text-[#212121] font-Neue p-[3.8vw]">

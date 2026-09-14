@@ -42,9 +42,10 @@ All URL consistency validations are currently **PASSING**:
 ## Current Implementation Status
 
 The logo metadata implementation in `src/app/layout.tsx` correctly uses:
-- **Open Graph**: `/logo.jpeg` (relative URL)
-- **Twitter Card**: `/logo.jpeg` (relative URL)  
-- **Structured Data**: `https://sitenerve.online/logo.jpeg` (absolute URL)
+- **Open Graph**: `/brand/sitenerve-logo.png` (relative URL)
+- **Twitter Card**: `/brand/sitenerve-logo.png` (relative URL)
+- **Structured Data**: `https://sitenerve.online/brand/sitenerve-logo.png` (absolute URL)
+- **Favicon / app icons**: `/brand/sitenerve-icon.png`
 - **Metadata Base**: `https://sitenerve.online`
 
 ## Usage

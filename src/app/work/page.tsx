@@ -8,6 +8,7 @@ import { Showcase } from "@/page/Showcase";
 import { Ourwork } from "@/page/Ourwork";
 import { Connect } from "@/page/Connect";
 import { Footer } from "@/page/Footer";
+import { ActiveProjects } from "@/components/ActiveProjects";
 
 export default function WorkPage() {
   const scrollContainerRef = useRef<HTMLElement | null>(null);
@@ -34,6 +35,7 @@ export default function WorkPage() {
         </p>
       </section>
 
+      <ActiveProjects />
       <Showcase />
       <Ourwork />
       <Connect />

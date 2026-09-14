@@ -1,40 +1,20 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { forwardRef, useCallback, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-const Logo = forwardRef<HTMLAnchorElement, { fill?: string; className?: string }>(
-  ({ fill = "#212121", className = "" }, ref) => (
+const Logo = forwardRef<HTMLAnchorElement, { variant?: "default" | "inverted"; className?: string }>(
+  ({ variant = "default", className = "" }, ref) => (
     <Link ref={ref} href="/" className={`logo ${className}`} aria-label="Go to homepage">
-      <svg
-        width="260"
-        height="50"
-        viewBox="0 0 260 50"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="SiteNerve Logo"
-      >
-        <defs>
-          <filter id={`shadow-${fill.replace("#", "")}`} x="0" y="0" width="200%" height="200%">
-            <feOffset result="offOut" in="SourceAlpha" dx="1" dy="1" />
-            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="1.5" />
-            <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-          </filter>
-        </defs>
-        <text
-          x="0"
-          y="35"
-          style={{
-            fontWeight: "600",
-            fontFamily: "Neue",
-            fontSize: "clamp(24px, 5vw, 32px)",
-            letterSpacing: "1px",
-          }}
-          fill={fill}
-        >
-          SiteNerve
-        </text>
-      </svg>
+      <Image
+        src="/brand/sitenerve-logo.png"
+        alt="SiteNerve logo"
+        width={2009}
+        height={783}
+        priority
+        className={`h-9 w-auto object-contain md:h-10 ${variant === "inverted" ? "brightness-0 invert" : ""}`}
+      />
     </Link>
   )
 );
@@ -254,7 +234,7 @@ export const Navbar = () => {
 
           <div ref={menuContentRef} className="relative h-full w-full px-10 py-3 text-white" style={{ opacity: 0, transform: "translateY(-30px)" }}>
             <div className="text-white text-3xl font-bold mb-8 flex-1">
-              <Logo fill="#f1f1f1" className="inline-block" />
+              <Logo variant="inverted" className="inline-block" />
             </div>
 
             <div className="flex flex-col font-FoundersGrotesk cursor-pointer">
@@ -276,7 +256,6 @@ export const Navbar = () => {
                 <a href="https://www.instagram.com/sitenerve.online/" className="hover:text-blue-300">Instagram</a>
                 <a href="https://www.linkedin.com/in/site-nerve-656145421" className="hover:text-blue-300">LinkedIn</a>
                 <a href="https://wa.me/919104980549" className="hover:text-green-700">WhatsApp</a>
-                <a href="https://www.behance.net/qalamwebstudio" className="hover:text-blue-300">Behance</a>
               </div>
             </div>
           </div>

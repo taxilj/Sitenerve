@@ -21,7 +21,7 @@ export function validateLogoUrlConsistency(
   const errors: string[] = [];
   
   // Expected values
-  const expectedRelativePath = '/logo.jpeg';
+  const expectedRelativePath = '/brand/sitenerve-logo.png';
   const expectedAbsoluteUrl = `${metadataBase}${expectedRelativePath}`;
   
   // Validate Open Graph URL format
@@ -40,13 +40,13 @@ export function validateLogoUrlConsistency(
   }
   
   // Validate file extension
-  if (!openGraphUrl.endsWith('.jpeg')) {
-    errors.push(`Logo URL should have .jpeg extension, got "${openGraphUrl}"`);
+  if (!openGraphUrl.endsWith('.png')) {
+    errors.push(`Logo URL should have .png extension, got "${openGraphUrl}"`);
   }
-  
+
   // Validate path format
-  if (!openGraphUrl.startsWith('/logo.')) {
-    errors.push(`Logo URL should start with "/logo.", got "${openGraphUrl}"`);
+  if (!openGraphUrl.startsWith('/brand/')) {
+    errors.push(`Logo URL should start with "/brand/", got "${openGraphUrl}"`);
   }
   
   return {
@@ -107,11 +107,11 @@ export function validateAbsoluteUrlGeneration(
       };
     }
     
-    if (!absoluteUrl.endsWith('.jpeg')) {
+    if (!absoluteUrl.endsWith('.png')) {
       return {
         isValid: false,
         absoluteUrl,
-        error: 'Absolute URL should end with .jpeg extension'
+        error: 'Absolute URL should end with .png extension'
       };
     }
     

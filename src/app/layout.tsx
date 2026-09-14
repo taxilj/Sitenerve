@@ -49,11 +49,11 @@ export const metadata: Metadata = {
     siteName: 'SiteNerve',
     images: [
       {
-        url: '/logo.jpeg',
-        width: 1200,
-        height: 630,
-        alt: 'SiteNerve Logo',
-        type: 'image/jpeg',
+        url: '/brand/sitenerve-logo.png',
+        width: 2009,
+        height: 783,
+        alt: 'SiteNerve logo',
+        type: 'image/png',
       }
     ],
   },
@@ -61,28 +61,24 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'SiteNerve - IT Services & Digital Solutions',
     description: 'Empowering startups and growing businesses with cutting-edge web development, mobile apps, and digital solutions.',
-    images: ['/logo.jpeg'],
+    images: ['/brand/sitenerve-logo.png'],
   },
   icons: {
     icon: [
-      { url: '/logo.jpeg', sizes: '16x16 32x32', type: 'image/jpeg' },
-      { url: '/logo.jpeg', sizes: '32x32', type: 'image/jpeg' },
-      { url: '/logo.jpeg', sizes: '16x16', type: 'image/jpeg' },
+      { url: '/brand/sitenerve-icon.png', sizes: '16x16 32x32', type: 'image/png' },
+      { url: '/brand/sitenerve-icon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/brand/sitenerve-icon.png', sizes: '16x16', type: 'image/png' },
+      { url: '/brand/sitenerve-icon.png', sizes: '512x512', type: 'image/png' },
     ],
-    shortcut: '/logo.jpeg',
+    shortcut: '/brand/sitenerve-icon.png',
     apple: [
-      { url: '/logo.jpeg', sizes: '180x180', type: 'image/jpeg' },
+      { url: '/brand/sitenerve-icon.png', sizes: '180x180', type: 'image/png' },
     ],
     other: [
       {
         rel: 'icon',
-        url: '/logo.jpeg',
-        type: 'image/jpeg',
-      },
-      {
-        rel: 'icon',
-        url: '/logo.jpeg',
-        type: 'image/jpeg',
+        url: '/brand/sitenerve-icon.png',
+        type: 'image/png',
       },
     ],
   },
@@ -96,10 +92,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/logo.jpeg" type="image/jpeg" />
-        <link rel="shortcut icon" href="/logo.jpeg" type="image/jpeg" />
-        <link rel="apple-touch-icon" href="/logo.jpeg" />
-        <meta name="msapplication-TileImage" content="/logo.jpeg" />
+        <link rel="icon" href="/brand/sitenerve-icon.png" type="image/png" />
+        <link rel="shortcut icon" href="/brand/sitenerve-icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/brand/sitenerve-icon.png" />
+        <meta name="msapplication-TileImage" content="/brand/sitenerve-icon.png" />
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body
@@ -115,7 +111,7 @@ export default function RootLayout({
             "@type": "Organization",
             name: "SiteNerve",
             url: "https://sitenerve.online",
-            logo: "https://sitenerve.online/logo.jpeg",
+            logo: "https://sitenerve.online/brand/sitenerve-logo.png",
             sameAs: [
               "https://www.instagram.com/sitenerve.online/",
               "https://www.linkedin.com/in/site-nerve-656145421",

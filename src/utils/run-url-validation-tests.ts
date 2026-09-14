@@ -13,16 +13,16 @@ const metadata = {
   openGraph: {
     images: [
       {
-        url: '/logo.jpeg',
-        width: 1200,
-        height: 630,
-        alt: 'SiteNerve Logo',
-        type: 'image/jpeg',
+        url: '/brand/sitenerve-logo.png',
+        width: 2009,
+        height: 783,
+        alt: 'SiteNerve logo',
+        type: 'image/png',
       }
     ],
   },
   twitter: {
-    images: ['/logo.jpeg'],
+    images: ['/brand/sitenerve-logo.png'],
   },
 };
 
@@ -40,7 +40,7 @@ interface TestResult {
 class URLConsistencyTestSuite {
   private results: TestResult[] = [];
   private readonly METADATA_BASE = 'https://sitenerve.online';
-  private readonly EXPECTED_RELATIVE_PATH = '/logo.jpeg';
+  private readonly EXPECTED_RELATIVE_PATH = '/brand/sitenerve-logo.png';
   private readonly EXPECTED_ABSOLUTE_URL = `${this.METADATA_BASE}${this.EXPECTED_RELATIVE_PATH}`;
 
   /**
@@ -98,8 +98,8 @@ class URLConsistencyTestSuite {
     const openGraphUrl = metadata.openGraph?.images?.[0]?.url || '';
     
     const correctPath = openGraphUrl === this.EXPECTED_RELATIVE_PATH;
-    const correctExtension = openGraphUrl.endsWith('.jpeg');
-    const startsCorrectly = openGraphUrl.startsWith('/logo.');
+    const correctExtension = openGraphUrl.endsWith('.png');
+    const startsCorrectly = openGraphUrl.startsWith('/brand/');
     
     const allCorrect = correctPath && correctExtension && startsCorrectly;
     
@@ -135,9 +135,9 @@ class URLConsistencyTestSuite {
    * Test logo file accessibility
    */
   testLogoFileAccessibility(): void {
-    const logoPath = path.join(process.cwd(), 'public', 'logo.jpeg');
+    const logoPath = path.join(process.cwd(), 'public', 'brand', 'sitenerve-logo.png');
     const exists = fs.existsSync(logoPath);
-    
+
     let fileSize = 0;
     if (exists) {
       try {
@@ -147,15 +147,15 @@ class URLConsistencyTestSuite {
         // File exists but can't read stats
       }
     }
-    
+
     this.results.push({
       name: 'Logo File Accessibility',
       property: 'File System Validation',
       requirements: 'Requirements 1.4, 4.1',
       passed: exists && fileSize > 0,
-      message: exists 
+      message: exists
         ? `Logo file exists and is accessible (${fileSize} bytes)`
-        : 'Logo file not found at public/logo.jpeg'
+        : 'Logo file not found at public/brand/sitenerve-logo.png'
     });
   }
 

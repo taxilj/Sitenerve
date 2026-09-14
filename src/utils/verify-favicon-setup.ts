@@ -21,14 +21,14 @@ class FaviconVerifier {
   private setupTests(): void {
     this.tests = [
       {
-        name: 'Logo File Exists',
+        name: 'Icon File Exists',
         test: async () => {
           try {
-            const logoPath = join(process.cwd(), 'public', 'logo.jpeg');
-            await readFile(logoPath);
-            return { passed: true, message: 'Logo file exists and is accessible' };
+            const iconPath = join(process.cwd(), 'public', 'brand', 'sitenerve-icon.png');
+            await readFile(iconPath);
+            return { passed: true, message: 'Icon file exists and is accessible' };
           } catch {
-            return { passed: false, message: 'Logo file not found at public/logo.jpeg' };
+            return { passed: false, message: 'Icon file not found at public/brand/sitenerve-icon.png' };
           }
         }
       },

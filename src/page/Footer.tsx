@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 // Memoized social links component
 const SocialLinks = React.memo(() => {
   const socialLinks = useMemo(() => [
     { href: "https://www.instagram.com/sitenerve.online/", label: "Instagram" },
-    { href: "https://www.behance.net/qalamwebstudio", label: "Behance" },
     { href: "https://www.linkedin.com/in/site-nerve-656145421", label: "LinkedIn" },
     { href: "https://wa.me/919104980549", label: "WhatsApp" },
   ], []);
@@ -74,8 +74,13 @@ const FooterComponent = () => {
     <footer data-scroll data-scroll-speed="-.2" className="w-full h-[100vh] flex flex-col rounded-t-2xl bg-white text-[#212121] font-Neue p-[3.8vw] relative overflow-hidden">
       <div className="flex-grow pt-20 px-2">
         <h1 className="text-3xl font-bold font-Neue">
-          <span className="text-emerald-700 text-[8vw] lg:text-[3vw]">SiteNerve</span>
-          <br />
+          <Image
+            src="/brand/sitenerve-logo.png"
+            alt="SiteNerve logo"
+            width={2009}
+            height={783}
+            className="mb-2 block h-auto w-[70vw] max-w-sm object-contain lg:w-72"
+          />
           Empowering Startups and Growing Businesses
         </h1>
       </div>

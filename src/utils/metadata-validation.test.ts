@@ -8,7 +8,7 @@ import { metadata } from '../app/layout';
 
 describe('Logo URL Consistency Validation', () => {
   const METADATA_BASE = 'https://sitenerve.online';
-  const EXPECTED_RELATIVE_PATH = '/logo.jpeg';
+  const EXPECTED_RELATIVE_PATH = '/brand/sitenerve-logo.png';
   const EXPECTED_ABSOLUTE_URL = `${METADATA_BASE}${EXPECTED_RELATIVE_PATH}`;
 
   describe('URL Format Consistency', () => {
@@ -38,7 +38,7 @@ describe('Logo URL Consistency Validation', () => {
       const validation = validateLogoUrlConsistency(
         '/wrong-logo.png',
         '/different-logo.jpg',
-        'https://wrong-domain.com/logo.jpeg',
+        'https://wrong-domain.com/brand-mark.jpeg',
         METADATA_BASE
       );
       
@@ -64,21 +64,21 @@ describe('Logo URL Consistency Validation', () => {
       // Feature: website-logo-metadata, Property 11: Logo Path and Extension Correctness
       const openGraphUrl = metadata.openGraph?.images?.[0]?.url || '';
       
-      expect(openGraphUrl).toMatch(/^\/logo\.jpeg$/);
-      expect(openGraphUrl).toContain('.jpeg');
-      expect(openGraphUrl).toStartWith('/logo.');
+      expect(openGraphUrl).toMatch(/^\/brand\/sitenerve-logo\.png$/);
+      expect(openGraphUrl).toContain('.png');
+      expect(openGraphUrl).toStartWith('/brand/');
     });
 
     test('should reject incorrect file extensions', () => {
       const validation = validateLogoUrlConsistency(
-        '/logo.png',
-        '/logo.png',
-        `${METADATA_BASE}/logo.png`,
+        '/brand/sitenerve-logo-old.jpeg',
+        '/brand/sitenerve-logo-old.jpeg',
+        `${METADATA_BASE}/brand/sitenerve-logo-old.jpeg`,
         METADATA_BASE
       );
-      
+
       expect(validation.isValid).toBe(false);
-      expect(validation.errors.some(error => error.includes('.jpeg extension'))).toBe(true);
+      expect(validation.errors.some(error => error.includes('.png extension'))).toBe(true);
     });
 
     test('should reject incorrect paths', () => {
@@ -90,7 +90,7 @@ describe('Logo URL Consistency Validation', () => {
       );
       
       expect(validation.isValid).toBe(false);
-      expect(validation.errors.some(error => error.includes('should start with "/logo."'))).toBe(true);
+      expect(validation.errors.some(error => error.includes('should start with "/brand/"'))).toBe(true);
     });
   });
 

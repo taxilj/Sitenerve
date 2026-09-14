@@ -11,7 +11,7 @@ import { Modelprice } from "@/page/Modelprice";
 import { Connect } from '@/page/Connect';
 import { Footer } from '@/page/Footer';
 import LocomotiveScroll from 'locomotive-scroll';
-import { PerformanceHighlights } from '@/components/PerformanceHighlights';
+import { ActiveProjects } from '@/components/ActiveProjects';
 
 export default function Home() {
     // Memoized event handler to prevent unnecessary re-renders
@@ -58,7 +58,7 @@ export default function Home() {
                <Showcase />
             </div>
             <Ourwork />
-            <PerformanceHighlights />   
+            <ActiveProjects />
             <Clientsreviews />
             <Modelprice />
             <Connect />

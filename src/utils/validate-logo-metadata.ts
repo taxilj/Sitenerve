@@ -10,16 +10,16 @@ const metadata = {
   openGraph: {
     images: [
       {
-        url: '/logo.jpeg',
-        width: 1200,
-        height: 630,
-        alt: 'SiteNerve Logo',
-        type: 'image/jpeg',
+        url: '/brand/sitenerve-logo.png',
+        width: 2009,
+        height: 783,
+        alt: 'SiteNerve logo',
+        type: 'image/png',
       }
     ],
   },
   twitter: {
-    images: ['/logo.jpeg'],
+    images: ['/brand/sitenerve-logo.png'],
   },
 };
 
@@ -40,7 +40,7 @@ export function validateCurrentImplementation(): {
   const openGraphUrl = metadata.openGraph?.images?.[0]?.url || '';
   const twitterUrl = metadata.twitter?.images?.[0] || '';
   const metadataBase = 'https://sitenerve.online';
-  const expectedAbsoluteUrl = `${metadataBase}/logo.jpeg`;
+  const expectedAbsoluteUrl = `${metadataBase}/brand/sitenerve-logo.png`;
   
   // Test 1: URL Format Consistency
   const urlConsistency = validateLogoUrlConsistency(
@@ -69,20 +69,20 @@ export function validateCurrentImplementation(): {
   });
   
   // Test 3: Logo Path and Extension Correctness
-  const correctPath = openGraphUrl === '/logo.jpeg';
-  const correctExtension = openGraphUrl.endsWith('.jpeg');
+  const correctPath = openGraphUrl === '/brand/sitenerve-logo.png';
+  const correctExtension = openGraphUrl.endsWith('.png');
   const pathCorrect = correctPath && correctExtension;
-  
+
   results.push({
     test: 'Logo Path and Extension Correctness',
     passed: pathCorrect,
     message: pathCorrect
       ? 'Logo path and extension are correct'
-      : `Incorrect path or extension: "${openGraphUrl}" (expected "/logo.jpeg")`
+      : `Incorrect path or extension: "${openGraphUrl}" (expected "/brand/sitenerve-logo.png")`
   });
-  
+
   // Test 4: Absolute URL Generation
-  const absoluteUrlValidation = validateAbsoluteUrlGeneration('/logo.jpeg', metadataBase);
+  const absoluteUrlValidation = validateAbsoluteUrlGeneration('/brand/sitenerve-logo.png', metadataBase);
   results.push({
     test: 'Absolute URL Generation',
     passed: absoluteUrlValidation.isValid,

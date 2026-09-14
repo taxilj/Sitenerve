@@ -1,7 +1,49 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from "next/navigation";
+
+const FOUNDER_PHOTO_SRC = '/images/founder/taxil-prajapati.png';
+
+const FounderCard = () => {
+    const [photoFailed, setPhotoFailed] = useState(false);
+
+    return (
+        <div
+            data-progress-reveal
+            className="mt-10 flex flex-col items-start gap-6 rounded-3xl border border-emerald-900/10 bg-white p-6 shadow-[0_30px_90px_rgba(15,23,42,0.08)] sm:flex-row sm:items-center md:p-8"
+            style={{
+                maskImage:
+                    "linear-gradient(to bottom, rgba(0,0,0, calc(var(--scroll-progress, 0))) 0%, rgba(0,0,0, calc(var(--scroll-progress, 0))) 100%)",
+            }}
+        >
+            {!photoFailed ? (
+                <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl border border-emerald-900/10 shadow-sm sm:h-32 sm:w-32">
+                    <Image
+                        src={FOUNDER_PHOTO_SRC}
+                        alt="Taxil Prajapati, Founder and CEO of SiteNerve"
+                        fill
+                        sizes="128px"
+                        className="object-cover"
+                        style={{ objectPosition: "center top", transform: "scale(1.13)", transformOrigin: "top" }}
+                        onError={() => setPhotoFailed(true)}
+                    />
+                </div>
+            ) : (
+                <div className="flex h-28 w-28 shrink-0 items-center justify-center rounded-2xl border border-emerald-900/10 bg-emerald-50 text-2xl font-semibold text-emerald-700 sm:h-32 sm:w-32">
+                    TP
+                </div>
+            )}
+            <div>
+                <p className="text-xl font-semibold text-[#212121]">Taxil Prajapati</p>
+                <p className="text-sm uppercase tracking-[0.2em] text-emerald-600">
+                    Founder &amp; CEO, SiteNerve
+                </p>
+            </div>
+        </div>
+    );
+};
 
 export const About = () => {
     const router = useRouter();
@@ -63,11 +105,12 @@ export const About = () => {
                                 "linear-gradient(to bottom, rgba(0,0,0, calc(var(--scroll-progress, 0))) 0%, rgba(0,0,0, calc(var(--scroll-progress, 0))) 100%)",
                         }}
                     >
-                        We are not just building solutions—we’re crafting meaningful digital transformations.
-                        As a passionate team with a shared commitment to innovation, we founded <span
-                        className="font-semibold">SiteNerve </span>
-                        to deliver cutting-edge IT services that blend creativity with modern technology.
+                        SiteNerve is an independent digital product studio founded by{" "}
+                        <span className="font-semibold">Taxil Prajapati</span>. We design and build custom
+                        websites, business software, dashboards, and automation systems for startups and
+                        growing businesses.
                     </p>
+                    <FounderCard />
                     <button
                         onClick={() => router.push("/Contact#contact-form")}
                         className="mt-10 group relative overflow-hidden px-6 py-3 border border-gray-700 rounded-full transition-colors duration-200 focus:outline-none"
