@@ -170,6 +170,7 @@ export const Hero = () => {
             }
 
             tl.call(() => {
+                applyFinalState();
                 hasAnimated.current = true;
                 heroAnimationPlayed = true;
             });
@@ -201,11 +202,12 @@ export const Hero = () => {
                                         ref={secondLineIconRef}
                                         className="rounded-lg absolute left-0 top-[13px] md:top-[10px] lg:top-[15px] overflow-hidden hidden md:block w-[130px] h-[60px] lg:w-[180px] lg:h-[89px]">
                                         <Image
-                                            src="/brand/sitenerve-logo.png"
-                                            alt="SiteNerve logo"
+                                            src="/4t2.avif"
+                                            alt="SiteNerve developer illustration"
                                             fill
+                                            priority
                                             sizes="(max-width: 768px) 70vw, (max-width: 1200px) 30vw, 400px"
-                                            className="object-contain"
+                                            className="object-cover"
                                         />
                                     </div>
                                 )}
@@ -254,11 +256,12 @@ export const Hero = () => {
                 {/* Mobile Image */}
                 <div className="mt-[100px]  relative block md:hidden w-[240px] h-[150px] overflow-hidden rounded-lg">
                     <Image
-                        src="/brand/sitenerve-logo.png"
-                        alt="SiteNerve logo"
+                        src="/4t2.avif"
+                        alt="SiteNerve developer illustration"
                         fill
+                        priority
                         sizes="(max-width: 768px) 70vw, (max-width: 1200px) 30vw, 400px"
-                        className="object-contain"
+                        className="object-cover"
                     />
                 </div>
             </div>
