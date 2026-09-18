@@ -57,6 +57,17 @@ export default function ServicesContent() {
           and brand refreshes to complex SaaS, marketplace, and mobile builds.
         </p>
       </section>
+      <section className="px-6 pb-16 md:px-16 lg:px-24" aria-labelledby="poster-creative-service-heading">
+        <div className="mx-auto max-w-7xl rounded-[28px] border border-emerald-900/10 bg-gradient-to-br from-white via-white to-emerald-50/70 p-7 shadow-[0_24px_70px_rgba(15,23,42,0.08)] md:p-10">
+          <p className="text-sm font-medium uppercase tracking-[0.35em] text-emerald-600">Creative Service</p>
+          <h2 id="poster-creative-service-heading" className="mt-4 max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
+            Poster &amp; Social Creative Design
+          </h2>
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
+            Campaign posters and social media creatives designed for businesses, offers, announcements, events, and brand communication.
+          </p>
+        </div>
+      </section>
       <ProjectTimeline />
       <section className="px-6 md:px-16 lg:px-24 py-12 md:py-16  backdrop-blur border-y border-emerald-100">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">

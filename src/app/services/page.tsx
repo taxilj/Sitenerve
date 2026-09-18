@@ -4,7 +4,7 @@ import ServicesContent from "./ServicesContent";
 export const metadata: Metadata = {
   title: "Services | SiteNerve",
   description:
-    "Explore SiteNerve's on-demand product, branding, and engineering teams. We craft SaaS, marketplaces, mobile apps, and custom platforms tailored to your roadmap.",
+    "Explore SiteNerve's product, creative design, branding, and engineering services for websites, software, dashboards, automation, campaign posters, and social media creatives.",
   alternates: {
     canonical: "/services",
   },

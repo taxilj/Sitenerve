@@ -13,6 +13,7 @@ import { Footer } from '@/page/Footer';
 import LocomotiveScroll from 'locomotive-scroll';
 import { ActiveProjects } from '@/components/ActiveProjects';
 import { CompletedProjects } from '@/components/CompletedProjects';
+import { PosterShowcase } from '@/components/PosterShowcase';
 
 export default function Home() {
     // Memoized event handler to prevent unnecessary re-renders
@@ -59,6 +60,7 @@ export default function Home() {
                <Showcase />
             </div>
             <Ourwork />
+            <PosterShowcase placement="home" />
             <ActiveProjects />
             <CompletedProjects />
             <Clientsreviews />

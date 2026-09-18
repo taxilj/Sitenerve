@@ -10,6 +10,7 @@ import { Connect } from "@/page/Connect";
 import { Footer } from "@/page/Footer";
 import { ActiveProjects } from "@/components/ActiveProjects";
 import { CompletedProjects } from "@/components/CompletedProjects";
+import { PosterShowcase } from "@/components/PosterShowcase";
 
 export default function WorkPage() {
   const scrollContainerRef = useRef<HTMLElement | null>(null);
@@ -38,6 +39,7 @@ export default function WorkPage() {
 
       <ActiveProjects />
       <CompletedProjects />
+      <PosterShowcase placement="work" />
       <Showcase />
       <Ourwork />
       <Connect />
