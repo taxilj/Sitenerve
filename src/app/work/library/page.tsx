@@ -194,14 +194,18 @@ function WorkLibraryContent() {
           {tabMessaging[activeTab].description}
         </p>
 
-        <div className="mt-10 flex flex-wrap gap-3">
+        <div className="scrollbar-hide -mx-6 mt-8 flex snap-x flex-nowrap gap-2 overflow-x-auto px-6 pb-2 sm:mx-0 sm:mt-10 sm:flex-wrap sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0">
           {workLibraryTabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
-                onClick={() => handleTabChange(tab.id)}
-                className={`rounded-2xl border px-4 py-2 text-sm font-semibold transition-all duration-300 ${
+                onClick={(e) => {
+                  handleTabChange(tab.id);
+                  e.currentTarget.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+                }}
+                aria-pressed={isActive}
+                className={`min-h-11 shrink-0 snap-start whitespace-nowrap rounded-2xl border px-4 py-2 text-sm font-semibold transition-all duration-300 ${
                   isActive
                     ? "border-neutral-900 bg-neutral-900 text-white shadow-lg shadow-slate-300/60"
                     : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-neutral-900"

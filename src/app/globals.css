@@ -28,6 +28,18 @@
     white-space: pre-wrap;
 }
 
+@media (max-width: 640px) {
+    .card {
+        padding: 1.25rem;
+        max-height: none;
+    }
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 html,body{
     margin: 0;
     padding: 0;

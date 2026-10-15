@@ -18,7 +18,7 @@ const SocialLinks = React.memo(() => {
           href={link.href} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="text-gray-600 hover:text-emerald-700 underline transition-colors duration-200"
+          className="inline-block py-2 md:py-0 text-gray-600 hover:text-emerald-700 underline transition-colors duration-200"
           aria-label={`Follow us on ${link.label}`}
         >
           {link.label}
@@ -46,7 +46,7 @@ const QuickLinks = React.memo(() => {
           <Link 
             key={link.href}
             href={link.href} 
-            className="text-gray-600 hover:text-emerald-800 underline transition-colors duration-200"
+            className="inline-block py-2 md:py-0 text-gray-600 hover:text-emerald-800 underline transition-colors duration-200"
             aria-label={`Navigate to ${link.label}`}
           >
             {link.label}
@@ -71,7 +71,7 @@ const FooterComponent = () => {
   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   return (
-    <footer data-scroll data-scroll-speed="-.2" className="w-full h-[100vh] flex flex-col rounded-t-2xl bg-white text-[#212121] font-Neue p-[3.8vw] relative overflow-hidden">
+    <footer data-scroll data-scroll-speed="-.2" className="w-full min-h-[100svh] flex flex-col rounded-t-2xl bg-white text-[#212121] font-Neue px-5 pb-6 pt-8 sm:p-[3.8vw] relative overflow-hidden">
       <div className="flex-grow pt-20 px-2">
         <h1 className="text-3xl font-bold font-Neue">
           <Image
@@ -98,11 +98,11 @@ const FooterComponent = () => {
 
           {/* Mobile: row for Follow Us and Quick Links */}
           <div className="flex flex-row w-full justify-between md:hidden mt-8 px-4">
-            <div className="flex flex-col space-y-2 items-start">
+            <div className="flex flex-col items-start">
               <h2 className="text-xl font-semibold mb-2">Follow Us</h2>
               <SocialLinks />
             </div>
-            <div className="flex flex-col space-y-2 items-end">
+            <div className="flex flex-col items-end">
               <h2 className="text-xl font-semibold mb-2">Quick Links</h2>
               <QuickLinks />
             </div>

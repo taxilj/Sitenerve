@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { forwardRef, useCallback, useLayoutEffect, useRef, useState } from "react";
+import { forwardRef, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 const Logo = forwardRef<HTMLAnchorElement, { variant?: "default" | "inverted"; className?: string }>(
   ({ variant = "default", className = "" }, ref) => (
-    <Link ref={ref} href="/" className={`logo ${className}`} aria-label="Go to homepage">
+    <Link ref={ref} href="/" className={`logo -my-1 py-1 ${className}`} aria-label="Go to homepage">
       <Image
         src="/brand/sitenerve-logo.png"
         alt="SiteNerve logo"
@@ -50,6 +50,20 @@ export const Navbar = () => {
   const closeMobileMenu = useCallback(() => {
     setMobileMenuOpen(false);
   }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [mobileMenuOpen]);
 
   const createHoverHandler = useCallback((isEnter: boolean) => {
     return (e: React.MouseEvent<HTMLElement>) => {
@@ -160,7 +174,7 @@ export const Navbar = () => {
   }, [mobileMenuOpen]);
 
   return (
-    <div ref={navBarRef} className="w-full px-8 md:px-10 lg:px-16 py-2 bg-transparent backdrop-blur-sm flex flex-row items-center justify-between font-Neue fixed z-50">
+    <div ref={navBarRef} className="w-full px-6 sm:px-8 md:px-10 lg:px-16 pb-2 pt-[max(0.5rem,env(safe-area-inset-top))] bg-transparent backdrop-blur-sm flex flex-row items-center justify-between font-Neue fixed z-50">
       {/* Logo */}
       <Logo ref={logoRef} />
 
@@ -184,10 +198,13 @@ export const Navbar = () => {
       </div>
       {/* Mobile Menu */}
       <div className="mobile md:hidden">
-        <div
-          className="menu-icon flex justify-end cursor-pointer z-50 relative"
+        <button
+          type="button"
+          className="menu-icon -mr-2 flex h-11 w-11 items-center justify-center cursor-pointer z-50 relative"
           onClick={toggleMobileMenu}
           aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
           {mobileMenuOpen ? (
             <svg
@@ -222,17 +239,18 @@ export const Navbar = () => {
               <line x1="3" y1="18" x2="21" y2="18" />
             </svg>
           )}
-        </div>
+        </button>
 
         {/* Fullscreen Overlay Mobile Menu */}
         <div
+          id="mobile-menu"
           ref={menuRef}
-          className="fixed inset-0 w-full min-h-screen z-40"
+          className="fixed inset-0 w-full min-h-screen h-dvh z-40 overflow-y-auto overscroll-contain"
           style={{ display: "none" }}
         >
-          <div ref={menuOverlayRef} className="absolute inset-0 bg-[#212121]" style={{ clipPath: "circle(0% at top center)" }} />
+          <div ref={menuOverlayRef} className="fixed inset-0 bg-[#212121]" style={{ clipPath: "circle(0% at top center)" }} />
 
-          <div ref={menuContentRef} className="relative h-full w-full px-10 py-3 text-white" style={{ opacity: 0, transform: "translateY(-30px)" }}>
+          <div ref={menuContentRef} className="relative min-h-full w-full px-6 sm:px-10 pb-10 pt-[max(0.75rem,env(safe-area-inset-top))] text-white" style={{ opacity: 0, transform: "translateY(-30px)" }}>
             <div className="text-white text-3xl font-bold mb-8 flex-1">
               <Logo variant="inverted" className="inline-block" />
             </div>
@@ -242,7 +260,7 @@ export const Navbar = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-[62px] md:text-6xl leading-[0.9] hover:text-gray-300 transition-colors duration-200"
+                  className="block py-1 text-[clamp(44px,15vw,62px)] md:text-6xl leading-[0.9] hover:text-gray-300 transition-colors duration-200"
                   onClick={closeMobileMenu}
                 >
                   {item.label.toUpperCase()}
@@ -250,12 +268,12 @@ export const Navbar = () => {
               ))}
             </div>
 
-            <div className="mt-24">
+            <div className="mt-12 sm:mt-24">
               <p className="text-gray-400 mb-2">S:</p>
-              <div className="flex flex-col gap-2 text-blue-400 underline">
-                <a href="https://www.instagram.com/sitenerve.online/" className="hover:text-blue-300">Instagram</a>
-                <a href="https://www.linkedin.com/in/site-nerve-656145421" className="hover:text-blue-300">LinkedIn</a>
-                <a href="https://wa.me/919104980549" className="hover:text-green-700">WhatsApp</a>
+              <div className="flex flex-col text-blue-400 underline">
+                <a href="https://www.instagram.com/sitenerve.online/" className="inline-block py-2.5 hover:text-blue-300">Instagram</a>
+                <a href="https://www.linkedin.com/in/site-nerve-656145421" className="inline-block py-2.5 hover:text-blue-300">LinkedIn</a>
+                <a href="https://wa.me/919104980549" className="inline-block py-2.5 hover:text-green-700">WhatsApp</a>
               </div>
             </div>
           </div>

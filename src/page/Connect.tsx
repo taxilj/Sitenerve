@@ -1,40 +1,13 @@
 'use client';
 
-import React, { useCallback } from "react";
+import React from "react";
+import Link from "next/link";
 import EyesFollowCursor from '@/components/EyesFollowCursor';
-import { ArrowRight, ArrowUp } from "lucide-react";
-import { ArrowUpRight } from 'lucide-react';
-import { useRouter } from "next/navigation";
-
-// Memoized icon components to prevent unnecessary re-renders
-const ArrowRightIcon = React.memo(() => (
-  <ArrowRight className="absolute w-2 h-2 text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-));
-
-const ArrowUpIcon = React.memo(() => (
-  <ArrowUp className="absolute w-2 h-2 text-black opacity-0 group-hover:opacity-200 transition-opacity duration-300" />
-));
-
-ArrowRightIcon.displayName = 'ArrowRightIcon';
-ArrowUpIcon.displayName = 'ArrowUpIcon';
-
-ArrowRightIcon.displayName = 'ArrowRightIcon';
-ArrowUpIcon.displayName = 'ArrowUpIcon';
+import { ArrowUp, ArrowUpRight } from "lucide-react";
 
 const ConnectComponent = () => {
-  const router = useRouter();
-  // Memoized event handlers
-  const handleContactClick = useCallback(() => {
-    router.push("/Contact");
-  }, [router]);
-
-  const handleEmailClick = useCallback(() => {
-    // TODO: replace with mailto:<real SiteNerve email> once configured
-    router.push("/Contact");
-  }, [router]);
-
   return (
-    <section  className="w-full h-[100vh] md:h-[130vh] flex flex-col rounded-t-2xl justify-center items-center bg-emerald-700 text-[#212121] font-FoundersGrotesk font-bold p-[3.8vw] relative overflow-hidden">
+    <section className="w-full min-h-[100svh] md:min-h-[130vh] flex flex-col rounded-t-2xl justify-center items-center bg-emerald-700 text-[#212121] font-FoundersGrotesk font-bold px-[3.8vw] py-16 md:py-[3.8vw] relative overflow-hidden">
       <div data-scroll data-scroll-speed=".1" className="flex flex-col items-center w-full">
             <div data-scroll data-scroll-speed=".2" className="absolute justify-center flex pointer-events-none">
                 <EyesFollowCursor/>
@@ -46,14 +19,14 @@ const ConnectComponent = () => {
           <br />
           THE PROJECT?
         </h1>
-     
+
         <div className="flex flex-col items-center gap-2 w-full max-w-md mt-10 mb-10">
           <div className="flex flex-col items-center justify-center space-y-4 font-Neue tracking-wide ">
           <div className='relative w-full items-center justify-center '>
                 <div className="flex flex-col items-center justify-center space-y-4">
-                    <a
+                    <Link
+                      href="/Contact"
                       className="group flex items-center justify-center pl-8 pr-6 py-4  bg-[#212121] hover:bg-black text-white rounded-full transition-colors  duration-200 cursor-pointer"
-                      onClick={handleContactClick}
                     >
                           let&apos;s talk
                         <div
@@ -62,7 +35,7 @@ const ConnectComponent = () => {
                                 className="absolute w-2 h-2 text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                             />
                         </div>
-                    </a>
+                    </Link>
                 </div>
             </div>
           </div>
@@ -70,9 +43,10 @@ const ConnectComponent = () => {
           <div className="flex flex-col items-center justify-center space-y-4 font-Neue tracking-wide ">
            <div className='relative w-full items-center justify-center '>
                 <div className="flex flex-col items-center justify-center space-y-4">
-                    <a
+                    {/* TODO: replace with mailto:<real SiteNerve email> once configured */}
+                    <Link
+                      href="/Contact"
                       className="group flex items-center justify-center pl-8 pr-6 py-4  bg-transparent  border border-black text-black rounded-full transition-colors  duration-200 cursor-pointer"
-                      onClick={handleEmailClick}
                     >
                         email us
                         <div
@@ -81,7 +55,7 @@ const ConnectComponent = () => {
                                 className="absolute w-2 h-2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                             />
                         </div>
-                    </a>
+                    </Link>
                 </div>
             </div>
           </div>

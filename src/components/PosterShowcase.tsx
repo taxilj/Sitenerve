@@ -42,7 +42,7 @@ function PosterPreview({ project, onOpen }: { project: PosterProject; onOpen: ()
             href={project.externalLink.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-[#212121] underline decoration-emerald-500 underline-offset-4 transition-colors hover:text-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600"
+            className="mt-5 inline-flex min-h-11 w-fit items-center gap-2 text-sm font-semibold text-[#212121] underline decoration-emerald-500 underline-offset-4 transition-colors hover:text-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600"
           >
             {project.externalLink.label}
             <ExternalLink className="h-4 w-4" aria-hidden="true" />
@@ -119,7 +119,7 @@ function PosterLightbox({
         aria-label="Close poster preview"
         tabIndex={-1}
       />
-      <div ref={dialogRef} className="relative z-10 flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#101916] shadow-2xl">
+      <div ref={dialogRef} className="relative z-10 flex max-h-[90vh] max-h-[90dvh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#101916] shadow-2xl">
         <div className="flex items-center justify-between gap-4 border-b border-white/10 px-4 py-3 text-white md:px-6">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">{project.category}</p>
@@ -129,7 +129,7 @@ function PosterLightbox({
             ref={closeButtonRef}
             type="button"
             onClick={onClose}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
             aria-label="Close poster preview"
           >
             <X className="h-5 w-5" aria-hidden="true" />
@@ -142,7 +142,7 @@ function PosterLightbox({
             width={1600}
             height={2000}
             sizes="(max-width: 1024px) 100vw, 80vw"
-            className="mx-auto max-h-[72vh] w-auto object-contain"
+            className="mx-auto max-h-[68vh] max-h-[68dvh] w-auto object-contain"
           />
         </div>
       </div>
@@ -162,7 +162,7 @@ export function PosterShowcase({ placement }: PosterShowcaseProps) {
 
   return (
     <section
-      className={`w-full px-[3.8vw] font-Neue text-[#212121] ${isHome ? "bg-[#f1f1f1] py-[3.8vw]" : "bg-white py-16 md:py-24"}`}
+      className={`w-full px-5 sm:px-[3.8vw] font-Neue text-[#212121] ${isHome ? "bg-[#f1f1f1] py-12 sm:py-[3.8vw]" : "bg-white py-16 md:py-24"}`}
       aria-labelledby={`${placement}-poster-showcase-heading`}
     >
       <div className="mx-auto max-w-7xl">

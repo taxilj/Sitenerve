@@ -56,7 +56,7 @@ const TestimonialCard = ({
         </span>
       <div className="flex flex-col">
         <div className="font-medium tracking-tight leading-5">{name}</div>
-        <a className="leading-5 tracking-tight" href={`mailto:${EmailID}`}>
+        <a className="-my-1.5 inline-block py-3 leading-5 tracking-tight [overflow-wrap:anywhere]" href={`mailto:${EmailID}`}>
           {EmailID}
         </a>
       </div>
@@ -81,6 +81,7 @@ const ClientsReviews = ({
     gsap.registerPlugin();
     const el = scrollRef.current;
     if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const totalHeight = el.scrollHeight / 2;
     const tl = gsap.timeline({ repeat: -1 });
@@ -129,7 +130,8 @@ export const Clientsreviews = () => {
       </div>
 
       <div className="flex justify-center gap-6 px-[5.8vw] mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[80vh] overflow-hidden">
-        <ClientsReviews testimonials={firstColumn} duration={18} />
+        <ClientsReviews testimonials={testimonials} className="block w-full md:hidden" duration={40} />
+        <ClientsReviews testimonials={firstColumn} className="hidden md:block" duration={18} />
         <ClientsReviews testimonials={secondColumn} className="hidden md:block" duration={22} />
         <ClientsReviews testimonials={thirdColumn} className="hidden lg:block" duration={20} />
       </div>

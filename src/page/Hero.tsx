@@ -180,7 +180,7 @@ export const Hero = () => {
     }, []);
 
     return (
-        <section data-scroll data-scroll-speed="-.2" className="relative w-full h-screen text-[#212121] flex flex-col  ">
+        <section data-scroll data-scroll-speed="-.2" className="relative w-full min-h-[100svh] md:h-screen md:min-h-0 text-[#212121] flex flex-col  ">
             {/* Top content */}
             <div className="w-full flex flex-col justify-start items-start px-6  pt-10 mt-14 md:pt-20 md:px-10 lg:px-14">
                 <div
@@ -192,7 +192,7 @@ export const Hero = () => {
                         return headingLines.map((line, index) => (
                             <h1
                                 key={index}
-                                className={`text-[55px] md:text-[100px] lg:text-[139px] uppercase tracking-normal lg:tracking-wider leading-[50px] md:leading-[70px] lg:leading-[108px]
+                                className={`text-[clamp(38px,15vw,55px)] md:text-[100px] lg:text-[139px] uppercase tracking-normal lg:tracking-wider leading-[50px] md:leading-[70px] lg:leading-[108px]
                 ${line.hasImage
                                         ? 'relative flex leading-[50px] md:leading-[70px] lg:leading-[70px]'
                                         : 'leading-none whitespace-nowrap'}`}
@@ -267,7 +267,7 @@ export const Hero = () => {
             </div>
 
             <div className='absolute right-0 top-[40vh]'>
-                <div className="px-4 py-8 flex flex-col items-center space-y-4">
+                <div className="px-1 sm:px-4 py-8 flex flex-col items-center space-y-1 sm:space-y-4">
                     {socialLinks.map(({ icon: Icon, url, color }, idx) => (
                         <span key={idx} className="overflow-hidden inline-flex">
                             <a
@@ -279,7 +279,8 @@ export const Hero = () => {
                                 href={url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group"
+                                className="group inline-flex h-11 w-11 items-center justify-center"
+                                aria-label={url.includes("instagram") ? "Instagram" : url.includes("linkedin") ? "LinkedIn" : "WhatsApp"}
                             >
                                 <Icon
                                     className={`text-[28px] md:text-[32px] lg:text-[28px] ${color} hover:scale-110 transition-transform duration-200`} />

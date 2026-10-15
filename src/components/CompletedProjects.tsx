@@ -54,7 +54,7 @@ function ProjectCard({ project, index }: { project: CompletedProject; index: num
             href={project.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-colors hover:text-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
+            className="inline-block py-1 transition-colors hover:text-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
           >
             {project.name}
           </a>
@@ -77,7 +77,7 @@ function ProjectCard({ project, index }: { project: CompletedProject; index: num
         href={project.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-6 inline-flex w-fit items-center gap-2 self-start rounded-full border border-[#212121] bg-[#212121] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        className="mt-6 inline-flex min-h-11 w-fit items-center gap-2 self-start rounded-full border border-[#212121] bg-[#212121] px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
         aria-label={`${project.ctaLabel} for ${project.name} (opens in a new tab)`}
       >
         {project.ctaLabel}
@@ -90,7 +90,7 @@ function ProjectCard({ project, index }: { project: CompletedProject; index: num
 export function CompletedProjects() {
   return (
     <section
-      className="w-full bg-[#f1f1f1] px-[3.8vw] py-[3.8vw] font-Neue text-[#212121]"
+      className="w-full bg-[#f1f1f1] px-5 py-12 sm:px-[3.8vw] sm:py-[3.8vw] font-Neue text-[#212121]"
       aria-labelledby="completed-projects-heading"
     >
       <div className="mx-auto max-w-7xl">

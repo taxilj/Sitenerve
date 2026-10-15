@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -17,6 +17,13 @@ const geistMono = Geist_Mono({
   display: 'swap',
   preload: true,
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#f1f1f1",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sitenerve.online"),

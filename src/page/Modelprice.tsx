@@ -517,8 +517,12 @@ const ModelpriceComponent = () => {
         return (
           <button
             key={tab.id}
-            onClick={() => handleTabChange(tab.id)}
-            className={`rounded-2xl border px-4 py-2 text-sm font-semibold transition-all duration-300 ${isActive
+            onClick={(e) => {
+              handleTabChange(tab.id);
+              e.currentTarget.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+            }}
+            aria-pressed={isActive}
+            className={`min-h-11 shrink-0 snap-start whitespace-nowrap rounded-2xl border px-4 py-2 text-sm font-semibold transition-all duration-300 ${isActive
               ? "border-neutral-900 bg-neutral-900 text-white shadow-lg shadow-slate-300/60"
               : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-neutral-900"
               }`}
@@ -534,7 +538,7 @@ const ModelpriceComponent = () => {
   return (
     <section
       id="modelprice"
-      className="relative isolate overflow-hidden py-8 md:py-24 bg-[radial-gradient(circle_at_30%_20%,rgba(33,33,33,0.05),transparent_45%),radial-gradient(circle_at_80%_0,rgba(0,0,0,0.04),transparent_50%),#f8f8f8]"
+      className="relative isolate overflow-hidden py-14 md:py-24 bg-[radial-gradient(circle_at_30%_20%,rgba(33,33,33,0.05),transparent_45%),radial-gradient(circle_at_80%_0,rgba(0,0,0,0.04),transparent_50%),#f8f8f8]"
     >
       <div className="relative mx-auto max-w-6xl px-4">
         <header className="text-center">
@@ -550,17 +554,17 @@ const ModelpriceComponent = () => {
           </p>
         </header>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
+        <div className="scrollbar-hide -mx-4 mt-10 flex snap-x flex-nowrap gap-2 overflow-x-auto px-4 pb-2 sm:mx-0 sm:mt-12 sm:flex-wrap sm:justify-center sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0">
           {tabButtons}
         </div>
 
-        <article className="mt-14 rounded-[40px] border border-slate-100 bg-gradient-to-br from-white via-white to-emerald-50  shadow-[0_35px_120px_rgba(15,23,42,0.15)] backdrop-blur-xl  p-6 lg:p-10  ">
+        <article className="mt-10 sm:mt-14 rounded-3xl sm:rounded-[40px] border border-slate-100 bg-gradient-to-br from-white via-white to-emerald-50  shadow-[0_35px_120px_rgba(15,23,42,0.15)] backdrop-blur-xl  p-6 lg:p-10  ">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-emerald-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-600">
                 {activeData.title}
               </div>
-              <h2 className="mt-4 text-3xl font-semibold text-slate-900">
+              <h2 className="mt-4 text-2xl sm:text-3xl font-semibold text-slate-900">
                 {activeData.description}
               </h2>
               {activeData.note && (
@@ -569,10 +573,10 @@ const ModelpriceComponent = () => {
                 </p>
               )}
             </div>
-            <div className="flex shrink-0">
+            <div className="flex w-full shrink-0 sm:w-auto">
               <button
                 onClick={handleViewWork}
-                className="overflow-hidden group flex items-center justify-center pl-8 pr-6 py-4 border bg-[#212121] hover:bg-black text-white rounded-full transition-colors  duration-200 cursor-pointer"
+                className="w-full sm:w-auto overflow-hidden group flex items-center justify-center pl-8 pr-6 py-4 border bg-[#212121] hover:bg-black text-white rounded-full transition-colors  duration-200 cursor-pointer"
               >
                 <span className="z-10">View recent work</span>
                 <div className="relative ml-8 w-2 h-2 group-hover:scale-500 bg-white duration-200 rounded-full">
@@ -592,7 +596,7 @@ const ModelpriceComponent = () => {
             ))}
           </div>
 
-          <div className="mt-12 rounded-3xl  bg-transparent px-6 py-6">
+          <div className="mt-8 sm:mt-12 rounded-3xl bg-transparent px-0 py-4 sm:px-6 sm:py-6">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#212121]">
               In every package, inclusive
             </p>

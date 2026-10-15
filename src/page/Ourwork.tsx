@@ -155,7 +155,7 @@ export const Ourwork = () => {
 
   return (
     <section
-      className="w-full bg-[#f1f1f1] text-[#212121] font-Neue p-[3.8vw] relative overflow-hidden"
+      className="w-full bg-[#f1f1f1] text-[#212121] font-Neue px-5 py-10 sm:p-[3.8vw] relative overflow-hidden"
       style={{ boxShadow: "0 -4px 6px -1px rgba(0, 0, 0, 0.1)" }}
     >
       <div className="w-full">
@@ -179,7 +179,7 @@ export const Ourwork = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
@@ -192,7 +192,7 @@ export const Ourwork = () => {
                 {project.label}
               </div>
               <div
-                className="group from-white/80 via-white/60 to-emerald-50/60  min-h-[26rem] rounded-2xl border border-gray-300 overflow-hidden 
+                className="group from-white/80 via-white/60 to-emerald-50/60  sm:min-h-[26rem] rounded-2xl border border-gray-300 overflow-hidden 
                 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl flex flex-col"
               >
                 {/* Project Image */}
@@ -230,7 +230,7 @@ export const Ourwork = () => {
 
                   <button
                     onClick={() => handleViewProject(project.libraryTab)}
-                    className="mt-auto inline-flex items-center justify-center gap-2 self-end rounded-full border border-[#212121] bg-[#212121] px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:-translate-x-1 hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    className="mt-auto inline-flex min-h-11 items-center justify-center gap-2 self-end rounded-full border border-[#212121] bg-[#212121] px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:-translate-x-1 hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     aria-label={`View details for ${project.title}`}
                   >
                     View project
@@ -242,7 +242,7 @@ export const Ourwork = () => {
           ))}
         </div>
       </div>
-      <div className="relative w-full items-center justify-center my-10 mt-24 ">
+      <div className="relative w-full items-center justify-center my-10 mt-14 sm:mt-24 ">
         <div className="flex flex-col items-center justify-center space-y-4">
           <button
             onClick={() => router.push("/work/library")}
