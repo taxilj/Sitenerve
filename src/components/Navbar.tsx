@@ -174,7 +174,9 @@ export const Navbar = () => {
   }, [mobileMenuOpen]);
 
   return (
-    <div ref={navBarRef} className="w-full px-6 sm:px-8 md:px-10 lg:px-16 pb-2 pt-[max(0.5rem,env(safe-area-inset-top))] bg-transparent backdrop-blur-sm flex flex-row items-center justify-between font-Neue fixed z-50">
+    <div ref={navBarRef} className="w-full px-6 sm:px-8 md:px-10 lg:px-16 pb-2 pt-[max(0.5rem,env(safe-area-inset-top))] bg-transparent flex flex-row items-center justify-between font-Neue fixed z-50">
+      {/* Blur lives on its own layer: backdrop-filter on this root would trap the fixed mobile menu inside the navbar box */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 backdrop-blur-sm" />
       {/* Logo */}
       <Logo ref={logoRef} />
 
