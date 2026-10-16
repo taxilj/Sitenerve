@@ -93,6 +93,8 @@ export const Navbar = () => {
         defaults: {
           ease: "power3.out",
           duration: 0.8,
+          // A leftover transform on the navbar becomes the containing block for the fixed mobile menu, shrinking it to the navbar's height.
+          clearProps: "transform,opacity",
         },
       });
 
